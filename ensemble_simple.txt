@@ -1,0 +1,113 @@
+======================================================================
+ ENHANCED HULL TACTICAL - MULTI-MODEL ENSEMBLE
+======================================================================
+
+[1] Loading and preparing historical data...
+
+[2] Initializing models...
+Testing 6 models...
+
+[3] Training models with time-series cross-validation...
+
+  Training Ridge...
+    CV Score (neg MSE): -0.000124 ± 0.000039
+
+  Training Lasso...
+    CV Score (neg MSE): -0.000119 ± 0.000037
+
+  Training ElasticNet...
+    CV Score (neg MSE): -0.000118 ± 0.000037
+
+  Training BayesianRidge...
+    CV Score (neg MSE): -0.000123 ± 0.000040
+
+  Training RandomForest...
+    CV Score (neg MSE): -0.000123 ± 0.000037
+
+  Training GradientBoosting...
+    CV Score (neg MSE): -0.000134 ± 0.000043
+
+[4] Calculating ensemble weights based on CV performance...
+
+  Model weights:
+    Ridge: 0.1667
+    Lasso: 0.1667
+    ElasticNet: 0.1667
+    BayesianRidge: 0.1667
+    RandomForest: 0.1667
+    GradientBoosting: 0.1667
+
+[5] Creating ensemble models...
+  ✓ Stacking ensemble created
+
+[6] Preparing backtest data...
+
+======================================================================
+ BACKTEST RESULTS
+======================================================================
+
+--- Individual Models ---
+
+Ridge:
+  Sharpe: 0.896 | Return: 18.22% | Vol: 20.35%
+  IC: +0.0491 | Alpha: +2.65% | Vol Ratio: 1.15x (PASS)
+  Allocation: [0.482, 1.820]
+
+Lasso:
+  Sharpe: 0.884 | Return: 15.59% | Vol: 17.63%
+  IC: -0.0000 | Alpha: +0.02% | Vol Ratio: 1.00x (PASS)
+  Allocation: [1.000, 1.005]
+
+ElasticNet:
+  Sharpe: 0.879 | Return: 15.60% | Vol: 17.75%
+  IC: +0.0229 | Alpha: +0.02% | Vol Ratio: 1.01x (PASS)
+  Allocation: [0.792, 1.200]
+
+BayesianRidge:
+  Sharpe: 0.893 | Return: 17.36% | Vol: 19.44%
+  IC: +0.0488 | Alpha: +1.78% | Vol Ratio: 1.10x (PASS)
+  Allocation: [0.553, 1.692]
+
+RandomForest:
+  Sharpe: 0.807 | Return: 14.72% | Vol: 18.23%
+  IC: -0.0093 | Alpha: -0.86% | Vol Ratio: 1.03x (PASS)
+  Allocation: [0.324, 2.000]
+
+GradientBoosting:
+  Sharpe: 0.735 | Return: 14.24% | Vol: 19.36%
+  IC: -0.0051 | Alpha: -1.34% | Vol Ratio: 1.10x (PASS)
+  Allocation: [0.128, 2.000]
+
+Stacking Ensemble:
+  Sharpe: 0.884 | Return: 15.59% | Vol: 17.64%
+  IC: +0.0085 | Alpha: +0.02% | Vol Ratio: 1.00x (PASS)
+
+Weighted Average Ensemble:
+  Sharpe: 0.853 | Return: 15.96% | Vol: 18.70%
+  IC: +0.0196 | Alpha: +0.38% | Vol Ratio: 1.06x (PASS)
+
+======================================================================
+ MODEL COMPARISON SUMMARY
+======================================================================
+
+Model                       Sharpe   Return %    Vol %       IC  Alpha %
+----------------------------------------------------------------------
+Ridge                        0.896      18.22    20.35  +0.0491    +2.65
+BayesianRidge                0.893      17.36    19.44  +0.0488    +1.78
+Lasso                        0.884      15.59    17.63  -0.0000    +0.02
+Stacking Ensemble            0.884      15.59    17.64  +0.0085    +0.02
+ElasticNet                   0.879      15.60    17.75  +0.0229    +0.02
+Weighted Average Ensemble    0.853      15.96    18.70  +0.0196    +0.38
+RandomForest                 0.807      14.72    18.23  -0.0093    -0.86
+GradientBoosting             0.735      14.24    19.36  -0.0051    -1.34
+----------------------------------------------------------------------
+
+🏆 Best Model: Ridge
+   Sharpe Ratio: 0.896
+   Annual Return: 18.22%
+   Volatility: 20.35%
+   Information Coefficient: +0.0491
+   Alpha: +2.65%
+   Allocation Range: [0.482, 1.820]
+
+✅ Analysis complete!

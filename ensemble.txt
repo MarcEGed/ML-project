@@ -1,0 +1,205 @@
+============================================================
+ ENHANCED HULL TACTICAL MARKET PREDICTION
+ Multi-Model Comparison & Ensemble
+============================================================
+Loading and preparing historical data...
+Training data: 7216 samples, 94 features
+Backtest data: 1805 samples
+
+============================================================
+ TRAINING AND EVALUATING INDIVIDUAL MODELS
+============================================================
+
+Training Ridge...
+  CV Score (neg MSE): -0.000124 ± 0.000039
+
+Training Lasso...
+  CV Score (neg MSE): -0.000119 ± 0.000037
+
+Training ElasticNet...
+  CV Score (neg MSE): -0.000118 ± 0.000037
+
+Training BayesianRidge...
+  CV Score (neg MSE): -0.000123 ± 0.000040
+
+Training RandomForest...
+  CV Score (neg MSE): -0.000123 ± 0.000037
+
+Training GradientBoosting...
+  CV Score (neg MSE): -0.000146 ± 0.000050
+
+Model weights for ensemble:
+  Ridge: 0.1667
+  Lasso: 0.1667
+  ElasticNet: 0.1667
+  BayesianRidge: 0.1667
+  RandomForest: 0.1667
+  GradientBoosting: 0.1667
+
+============================================================
+ BACKTESTING INDIVIDUAL MODELS
+============================================================
+
+Ridge Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0491
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              18.22%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          20.34%
+Strategy-to-Market Volatility Ratio:     1.15x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.896
+Net Alpha Generation:                    +2.65%
+Allocation Range: [0.482, 1.820]
+Mean Allocation:                         1.105
+============================================================
+
+Lasso Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    -0.0000
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              15.59%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          17.63%
+Strategy-to-Market Volatility Ratio:     1.00x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.884
+Net Alpha Generation:                    +0.02%
+Allocation Range: [1.000, 1.005]
+Mean Allocation:                         1.001
+============================================================
+
+ElasticNet Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0229
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              15.60%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          17.74%
+Strategy-to-Market Volatility Ratio:     1.01x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.879
+Net Alpha Generation:                    +0.02%
+Allocation Range: [0.792, 1.200]
+Mean Allocation:                         1.001
+============================================================
+
+BayesianRidge Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0488
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              17.36%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          19.44%
+Strategy-to-Market Volatility Ratio:     1.10x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.893
+Net Alpha Generation:                    +1.78%
+Allocation Range: [0.553, 1.692]
+Mean Allocation:                         1.061
+============================================================
+
+RandomForest Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    -0.0090
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              14.88%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          18.34%
+Strategy-to-Market Volatility Ratio:     1.04x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.811
+Net Alpha Generation:                    -0.70%
+Allocation Range: [0.382, 2.000]
+Mean Allocation:                         0.992
+============================================================
+
+GradientBoosting Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0149
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              15.12%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          20.38%
+Strategy-to-Market Volatility Ratio:     1.16x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.742
+Net Alpha Generation:                    -0.45%
+Allocation Range: [0.000, 2.000]
+Mean Allocation:                         0.970
+============================================================
+
+============================================================
+ BACKTESTING ENSEMBLE MODELS
+============================================================
+
+Weighted Average Ensemble Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0264
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              16.12%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          18.86%
+Strategy-to-Market Volatility Ratio:     1.07x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.855
+Net Alpha Generation:                    +0.55%
+Allocation Range: [0.681, 1.745]
+Mean Allocation:                         1.022
+============================================================
+
+Stacking Ensemble Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0216
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              15.59%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          17.63%
+Strategy-to-Market Volatility Ratio:     1.00x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.884
+Net Alpha Generation:                    +0.02%
+Allocation Range: [1.000, 1.005]
+Mean Allocation:                         1.001
+============================================================
+
+Voting Ensemble Backtest Scorecard
+------------------------------------------------------------
+Information Coefficient (Correlation):    +0.0482
+Annualized Market Return:                15.58%
+Annualized Strategy Return:              16.69%
+Annualized Market Volatility:            17.61%
+Annualized Strategy Volatility:          18.76%
+Strategy-to-Market Volatility Ratio:     1.07x (PASS)
+Market Buy-and-Hold Sharpe Ratio:         0.884
+Strategy Sharpe Ratio:                    0.890
+Net Alpha Generation:                    +1.12%
+Allocation Range: [0.707, 1.390]
+Mean Allocation:                         1.042
+============================================================
+
+============================================================
+ MODEL COMPARISON SUMMARY
+============================================================
+
+Model                              Sharpe     Return %      Vol %       IC    Alpha %
+--------------------------------------------------------------------------------
+Ridge                               0.896        18.22      20.34  +0.0491      +2.65
+BayesianRidge                       0.893        17.36      19.44  +0.0488      +1.78
+Voting Ensemble                     0.890        16.69      18.76  +0.0482      +1.12
+Lasso                               0.884        15.59      17.63  -0.0000      +0.02
+Stacking Ensemble                   0.884        15.59      17.63  +0.0216      +0.02
+ElasticNet                          0.879        15.60      17.74  +0.0229      +0.02
+Weighted Average Ensemble           0.855        16.12      18.86  +0.0264      +0.55
+RandomForest                        0.811        14.88      18.34  -0.0090      -0.70
+GradientBoosting                    0.742        15.12      20.38  +0.0149      -0.45
+--------------------------------------------------------------------------------
+
+🏆 Best Model: Ridge
+   Sharpe Ratio: 0.896
+   Annual Return: 18.22%
+   Volatility: 20.34%
+   Alpha: 2.65%
+
+✓ Analysis complete. Best model: Ridge
