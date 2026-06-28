@@ -37,3 +37,6 @@ This experience reminded me that leaderboard optimization is only part of the ch
 As this was my first attempt at this competition, earning a Bronze Medal was already beyond my expectations. There is still a long way to go before reaching Silver or Gold, but I learned a tremendous amount from this challenge and look forward to coming back stronger next time.
 
 Thanks again to the organizers and everyone in the community for making this such an enjoyable competition!
+
+
+Shih Hua Chou. [225th Bronze | 1st Try] Simple Single LGBM & Volatility Control. https://www.kaggle.com/competitions/hull-tactical-market-prediction/writeups/225th-bronze-1st-try-simple-single-lgbm-and-vola. 2026. Kaggle
