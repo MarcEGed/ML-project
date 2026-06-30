@@ -74,7 +74,7 @@ config = Config()
 # ---------------------------------------------------------------------------
 
 def convert_ret_to_signal(x, bound=0.006, scale=3.0):
-    """DO NOT MODIFY – 163rd place proven implementation."""
+    """place proven implementation."""
     x_clipped = np.clip(x, -bound, bound)
     x_norm    = x_clipped / bound
     x_scaled  = x_norm * scale
