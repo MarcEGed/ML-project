@@ -17,7 +17,7 @@ The pipeline is built around three complementary ideas:
    engineering effort on the signals that carry the most predictive content.
 
 2. **Lag & momentum features for all base features**
-   Short-horizon lags (1–10 days) capture autocorrelation in market factors.
+   Short-horizon lags (1-10 days) capture autocorrelation in market factors.
    Momentum differences (diff over 1/2/3/5 days) turn level features into
    rate-of-change signals, which are often more stationary and informative
    than the raw levels for regression targets that are themselves returns.
@@ -26,7 +26,7 @@ The pipeline is built around three complementary ideas:
    signal.
 
 3. **Autoregressive target lags**
-   The target itself (market_forward_excess_returns) is lagged by 1–3 periods
+   The target itself (market_forward_excess_returns) is lagged by 1-3 periods
    and included as features.  This gives the model direct access to recent
    regime information that may not be captured by the factor columns.
 
@@ -71,7 +71,7 @@ NON_FEATURE_COLS       = ['date_id', 'forward_returns', 'risk_free_rate',
 
 
 # ---------------------------------------------------------------------------
-# Step 1 – Imputation
+# Step 1 - Imputation
 # ---------------------------------------------------------------------------
 
 def impute_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -90,7 +90,7 @@ def impute_features(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
-# Step 2 – Identify base features & select top-N by correlation
+# Step 2 - Identify base features & select top-N by correlation
 # ---------------------------------------------------------------------------
 
 def get_base_feature_cols(df: pd.DataFrame) -> list:
@@ -143,7 +143,7 @@ def rank_features_by_correlation(df: pd.DataFrame,
 
 
 # ---------------------------------------------------------------------------
-# Step 3 – Lag features
+# Step 3 - Lag features
 # ---------------------------------------------------------------------------
 
 def add_lag_features(df: pd.DataFrame,
@@ -157,8 +157,8 @@ def add_lag_features(df: pd.DataFrame,
     to learn lag structure implicitly through tree splits.
 
     Lags used: 1, 2, 3, 5, 10 days.
-    - Lags 1–3 capture very short autocorrelation (mean-reversion or momentum
-      at the 1–3 day horizon).
+    - Lags 1-3 capture very short autocorrelation (mean-reversion or momentum
+      at the 1-3 day horizon).
     - Lag 5 ≈ one week.
     - Lag 10 ≈ two weeks / half a month.
     """
@@ -169,7 +169,7 @@ def add_lag_features(df: pd.DataFrame,
 
 
 # ---------------------------------------------------------------------------
-# Step 4 – Momentum (difference) features
+# Step 4 - Momentum (difference) features
 # ---------------------------------------------------------------------------
 
 def add_momentum_features(df: pd.DataFrame,
@@ -185,7 +185,7 @@ def add_momentum_features(df: pd.DataFrame,
     Raw factor levels are often non-stationary.  First differences transform
     them into rate-of-change signals that are closer to stationary and often
     correlate better with forward return targets (which are themselves
-    differences).  Short-horizon differences (1–5 days) also capture
+    differences).  Short-horizon differences (1-5 days) also capture
     "acceleration" or reversal patterns in each factor.
     """
     for feature in feature_cols:
@@ -195,7 +195,7 @@ def add_momentum_features(df: pd.DataFrame,
 
 
 # ---------------------------------------------------------------------------
-# Step 5 – Rolling statistics (top-N features only)
+# Step 5 - Rolling statistics (top-N features only)
 # ---------------------------------------------------------------------------
 
 def add_rolling_features(df: pd.DataFrame,
@@ -207,8 +207,8 @@ def add_rolling_features(df: pd.DataFrame,
     Add rolling mean and rolling standard deviation for each window in
     {short, medium, macro} schedules, but only for the *top_features* subset.
 
-    Rolling mean  – smoothed level; captures trend direction over the window.
-    Rolling std   – realised dispersion; acts as a local volatility or
+    Rolling mean  - smoothed level; captures trend direction over the window.
+    Rolling std   - realised dispersion; acts as a local volatility or
                     uncertainty signal for that factor.
 
     Window rationale
@@ -236,7 +236,7 @@ def add_rolling_features(df: pd.DataFrame,
 
 
 # ---------------------------------------------------------------------------
-# Step 6 – Autoregressive target lags
+# Step 6 - Autoregressive target lags
 # ---------------------------------------------------------------------------
 
 def add_target_lags(df: pd.DataFrame,
@@ -251,7 +251,7 @@ def add_target_lags(df: pd.DataFrame,
     consistently positive or negative recently) that may not be fully
     reconstructable from factor lags alone.
 
-    Lags 1–3 days are used to avoid look-ahead leakage while still capturing
+    Lags 1-3 days are used to avoid look-ahead leakage while still capturing
     short-term serial correlation.
     """
     for lag in lags:
@@ -260,7 +260,7 @@ def add_target_lags(df: pd.DataFrame,
 
 
 # ---------------------------------------------------------------------------
-# Step 7 – Volatility proxy
+# Step 7 - Volatility proxy
 # ---------------------------------------------------------------------------
 
 def add_vol_proxy(df: pd.DataFrame) -> pd.DataFrame:
@@ -354,10 +354,10 @@ def split_and_scale(df: pd.DataFrame,
     Returns
     -------
     Dictionary with keys:
-        train_era, backtest_era       – raw DataFrames for each split
-        X_train_scaled, X_test_scaled – scaled numpy arrays
-        feature_cols                  – list of feature column names
-        scaler                        – fitted StandardScaler instance
+        train_era, backtest_era       - raw DataFrames for each split
+        X_train_scaled, X_test_scaled - scaled numpy arrays
+        feature_cols                  - list of feature column names
+        scaler                        - fitted StandardScaler instance
     """
     feature_cols = [c for c in df.columns if c not in NON_FEATURE_COLS]
 
